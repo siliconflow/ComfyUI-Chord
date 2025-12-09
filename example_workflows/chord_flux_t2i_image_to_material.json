@@ -1,8 +1,8 @@
 {
   "id": "457fd89f-72f5-488c-98e0-a9ff28375de8",
   "revision": 0,
-  "last_node_id": 20,
-  "last_link_id": 23,
+  "last_node_id": 21,
+  "last_link_id": 31,
   "nodes": [
     {
       "id": 2,
@@ -70,7 +70,7 @@
         {
           "name": "images",
           "type": "IMAGE",
-          "link": 12
+          "link": 28
         }
       ],
       "outputs": [],
@@ -101,7 +101,7 @@
         {
           "name": "images",
           "type": "IMAGE",
-          "link": 13
+          "link": 31
         }
       ],
       "outputs": [],
@@ -132,7 +132,7 @@
         {
           "name": "normal",
           "type": "IMAGE",
-          "link": 14
+          "link": 29
         }
       ],
       "outputs": [
@@ -200,7 +200,7 @@
         {
           "name": "images",
           "type": "IMAGE",
-          "link": 16
+          "link": 27
         }
       ],
       "outputs": [],
@@ -231,7 +231,7 @@
         {
           "name": "images",
           "type": "IMAGE",
-          "link": 17
+          "link": 30
         }
       ],
       "outputs": [],
@@ -276,7 +276,7 @@
           "type": "IMAGE",
           "links": [
             11,
-            19
+            26
           ]
         }
       ],
@@ -316,105 +316,6 @@
       },
       "widgets_values": [
         "texture_image"
-      ]
-    },
-    {
-      "id": 19,
-      "type": "ChordMaterialEstimation",
-      "pos": [
-        2760,
-        -160
-      ],
-      "size": [
-        209.51328125,
-        86
-      ],
-      "flags": {},
-      "order": 11,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 18
-        },
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 19
-        }
-      ],
-      "outputs": [
-        {
-          "name": "basecolor",
-          "type": "IMAGE",
-          "links": [
-            16
-          ]
-        },
-        {
-          "name": "normal",
-          "type": "IMAGE",
-          "links": [
-            12,
-            14
-          ]
-        },
-        {
-          "name": "roughness",
-          "type": "IMAGE",
-          "links": [
-            17
-          ]
-        },
-        {
-          "name": "metalness",
-          "type": "IMAGE",
-          "links": [
-            13
-          ]
-        }
-      ],
-      "properties": {
-        "aux_id": "ubisoft/ComfyUI-Chord",
-        "ver": "a3db2834454fbced4f5fc4b2d529df5c517ebe45",
-        "Node name for S&R": "ChordMaterialEstimation"
-      },
-      "widgets_values": []
-    },
-    {
-      "id": 12,
-      "type": "ChordLoadModel",
-      "pos": [
-        2430,
-        -220
-      ],
-      "size": [
-        270,
-        58
-      ],
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            18
-          ]
-        }
-      ],
-      "properties": {
-        "aux_id": "ubisoft/ComfyUI-Chord",
-        "ver": "a3db2834454fbced4f5fc4b2d529df5c517ebe45",
-        "Node name for S&R": "ChordLoadModel"
-      },
-      "widgets_values": [
-        [
-          "chord_v1.ckpt"
-        ]
       ]
     },
     {
@@ -526,7 +427,7 @@
         82
       ],
       "flags": {},
-      "order": 2,
+      "order": 1,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -546,7 +447,7 @@
           {
             "name": "Rayflux.v1.0_fp8.safetensors",
             "url": "https://huggingface.co/MutantSparrow/Ray/resolve/main/FLUX/Rayflux.v1.0_fp8.safetensors?download=true",
-            "directory": "checkpoints"
+            "directory": "diffusion_models"
           }
         ]
       },
@@ -567,7 +468,7 @@
         58
       ],
       "flags": {},
-      "order": 3,
+      "order": 2,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -607,7 +508,7 @@
         106
       ],
       "flags": {},
-      "order": 4,
+      "order": 3,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -642,7 +543,7 @@
         180
       ],
       "flags": {},
-      "order": 5,
+      "order": 4,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -721,6 +622,110 @@
         "",
         1.5
       ]
+    },
+    {
+      "id": 21,
+      "type": "ChordMaterialEstimation",
+      "pos": [
+        2760,
+        -160
+      ],
+      "size": [
+        209.51328125,
+        86
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "chord_model",
+          "type": "chord_model",
+          "link": 25
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 26
+        }
+      ],
+      "outputs": [
+        {
+          "name": "basecolor",
+          "type": "IMAGE",
+          "links": [
+            27
+          ]
+        },
+        {
+          "name": "normal",
+          "type": "IMAGE",
+          "links": [
+            28,
+            29
+          ]
+        },
+        {
+          "name": "roughness",
+          "type": "IMAGE",
+          "links": [
+            30
+          ]
+        },
+        {
+          "name": "metalness",
+          "type": "IMAGE",
+          "links": [
+            31
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "ubisoft/ComfyUI-Chord",
+        "ver": "53296391fe2cf7f3f370a5c6536dcb2177221257",
+        "Node name for S&R": "ChordMaterialEstimation"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 12,
+      "type": "ChordLoadModel",
+      "pos": [
+        2430,
+        -220
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "chord_model",
+          "type": "chord_model",
+          "links": [
+            25
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "ubisoft/ComfyUI-Chord",
+        "ver": "a3db2834454fbced4f5fc4b2d529df5c517ebe45",
+        "Node name for S&R": "ChordLoadModel",
+        "models": [
+          {
+            "name": "chord_v1.safetensors",
+            "url": "https://huggingface.co/Ubisoft/ubisoft-laforge-chord/resolve/main/chord_v1.safetensors?download=true",
+            "directory": "checkpoints"
+          }
+        ]
+      },
+      "widgets_values": [
+        "chord_v1.safetensors"
+      ]
     }
   ],
   "links": [
@@ -781,67 +786,11 @@
       "IMAGE"
     ],
     [
-      12,
-      19,
-      1,
-      13,
-      0,
-      "IMAGE"
-    ],
-    [
-      13,
-      19,
-      3,
-      14,
-      0,
-      "IMAGE"
-    ],
-    [
-      14,
-      19,
-      1,
-      15,
-      0,
-      "IMAGE"
-    ],
-    [
       15,
       15,
       0,
       16,
       0,
-      "IMAGE"
-    ],
-    [
-      16,
-      19,
-      0,
-      17,
-      0,
-      "IMAGE"
-    ],
-    [
-      17,
-      19,
-      2,
-      18,
-      0,
-      "IMAGE"
-    ],
-    [
-      18,
-      12,
-      0,
-      19,
-      0,
-      "MODEL"
-    ],
-    [
-      19,
-      10,
-      0,
-      19,
-      1,
       "IMAGE"
     ],
     [
@@ -875,6 +824,62 @@
       10,
       1,
       "VAE"
+    ],
+    [
+      25,
+      12,
+      0,
+      21,
+      0,
+      "chord_model"
+    ],
+    [
+      26,
+      10,
+      0,
+      21,
+      1,
+      "IMAGE"
+    ],
+    [
+      27,
+      21,
+      0,
+      17,
+      0,
+      "IMAGE"
+    ],
+    [
+      28,
+      21,
+      1,
+      13,
+      0,
+      "IMAGE"
+    ],
+    [
+      29,
+      21,
+      1,
+      15,
+      0,
+      "IMAGE"
+    ],
+    [
+      30,
+      21,
+      2,
+      18,
+      0,
+      "IMAGE"
+    ],
+    [
+      31,
+      21,
+      3,
+      14,
+      0,
+      "IMAGE"
     ]
   ],
   "groups": [
@@ -908,17 +913,18 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.9090909090909091,
+      "scale": 0.4458204334365324,
       "offset": [
-        -529.3401932682049,
-        382.39559310741566
+        -61.666666666666515,
+        1169.4270833333335
       ]
     },
-    "frontendVersion": "1.30.6",
+    "frontendVersion": "1.33.10",
     "VHS_latentpreview": false,
     "VHS_latentpreviewrate": 0,
     "VHS_MetadataImage": true,
-    "VHS_KeepIntermediate": true
+    "VHS_KeepIntermediate": true,
+    "workflowRendererVersion": "LG"
   },
   "version": 0.4
 }

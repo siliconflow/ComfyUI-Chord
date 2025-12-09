@@ -1,49 +1,9 @@
 {
   "id": "3f5dd780-e4c7-495c-873d-0e194ec4fa7a",
   "revision": 0,
-  "last_node_id": 17,
-  "last_link_id": 20,
+  "last_node_id": 18,
+  "last_link_id": 28,
   "nodes": [
-    {
-      "id": 6,
-      "type": "SeamlessTile",
-      "pos": [
-        770,
-        -260
-      ],
-      "size": [
-        270,
-        82
-      ],
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 6
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            7
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfyui-seamless-tiling",
-        "ver": "1.0.0",
-        "Node name for S&R": "SeamlessTile"
-      },
-      "widgets_values": [
-        "enable",
-        "Make a copy"
-      ]
-    },
     {
       "id": 7,
       "type": "MakeCircularVAE",
@@ -305,7 +265,7 @@
         {
           "name": "images",
           "type": "IMAGE",
-          "link": 13
+          "link": 25
         }
       ],
       "outputs": [],
@@ -336,7 +296,7 @@
         {
           "name": "images",
           "type": "IMAGE",
-          "link": 14
+          "link": 28
         }
       ],
       "outputs": [],
@@ -367,7 +327,7 @@
         {
           "name": "normal",
           "type": "IMAGE",
-          "link": 15
+          "link": 26
         }
       ],
       "outputs": [
@@ -435,7 +395,7 @@
         {
           "name": "images",
           "type": "IMAGE",
-          "link": 18
+          "link": 27
         }
       ],
       "outputs": [],
@@ -466,7 +426,7 @@
         {
           "name": "images",
           "type": "IMAGE",
-          "link": 17
+          "link": 24
         }
       ],
       "outputs": [],
@@ -511,7 +471,7 @@
           "type": "IMAGE",
           "links": [
             12,
-            20
+            23
           ]
         }
       ],
@@ -521,105 +481,6 @@
         "Node name for S&R": "VAEDecode"
       },
       "widgets_values": []
-    },
-    {
-      "id": 17,
-      "type": "ChordMaterialEstimation",
-      "pos": [
-        2470,
-        -130
-      ],
-      "size": [
-        209.51328125,
-        86
-      ],
-      "flags": {},
-      "order": 10,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 19
-        },
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 20
-        }
-      ],
-      "outputs": [
-        {
-          "name": "basecolor",
-          "type": "IMAGE",
-          "links": [
-            17
-          ]
-        },
-        {
-          "name": "normal",
-          "type": "IMAGE",
-          "links": [
-            13,
-            15
-          ]
-        },
-        {
-          "name": "roughness",
-          "type": "IMAGE",
-          "links": [
-            18
-          ]
-        },
-        {
-          "name": "metalness",
-          "type": "IMAGE",
-          "links": [
-            14
-          ]
-        }
-      ],
-      "properties": {
-        "aux_id": "ubisoft/ComfyUI-Chord",
-        "ver": "a3db2834454fbced4f5fc4b2d529df5c517ebe45",
-        "Node name for S&R": "ChordMaterialEstimation"
-      },
-      "widgets_values": []
-    },
-    {
-      "id": 10,
-      "type": "ChordLoadModel",
-      "pos": [
-        2150,
-        -200
-      ],
-      "size": [
-        270,
-        58
-      ],
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            19
-          ]
-        }
-      ],
-      "properties": {
-        "aux_id": "ubisoft/ComfyUI-Chord",
-        "ver": "a3db2834454fbced4f5fc4b2d529df5c517ebe45",
-        "Node name for S&R": "ChordLoadModel"
-      },
-      "widgets_values": [
-        [
-          "chord_v1.ckpt"
-        ]
-      ]
     },
     {
       "id": 4,
@@ -679,6 +540,150 @@
         "dpmpp_2m",
         "karras",
         1
+      ]
+    },
+    {
+      "id": 10,
+      "type": "ChordLoadModel",
+      "pos": [
+        2150,
+        -200
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "chord_model",
+          "type": "chord_model",
+          "links": [
+            22
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "ubisoft/ComfyUI-Chord",
+        "ver": "a3db2834454fbced4f5fc4b2d529df5c517ebe45",
+        "Node name for S&R": "ChordLoadModel",
+        "models": [
+          {
+            "name": "chord_v1.safetensors",
+            "url": "https://huggingface.co/Ubisoft/ubisoft-laforge-chord/resolve/main/chord_v1.safetensors?download=true",
+            "directory": "checkpoints"
+          }
+        ]
+      },
+      "widgets_values": [
+        "chord_v1.safetensors"
+      ]
+    },
+    {
+      "id": 18,
+      "type": "ChordMaterialEstimation",
+      "pos": [
+        2470,
+        -130
+      ],
+      "size": [
+        209.51328125,
+        86
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "chord_model",
+          "type": "chord_model",
+          "link": 22
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 23
+        }
+      ],
+      "outputs": [
+        {
+          "name": "basecolor",
+          "type": "IMAGE",
+          "links": [
+            24
+          ]
+        },
+        {
+          "name": "normal",
+          "type": "IMAGE",
+          "links": [
+            25,
+            26
+          ]
+        },
+        {
+          "name": "roughness",
+          "type": "IMAGE",
+          "links": [
+            27
+          ]
+        },
+        {
+          "name": "metalness",
+          "type": "IMAGE",
+          "links": [
+            28
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "ubisoft/ComfyUI-Chord",
+        "ver": "53296391fe2cf7f3f370a5c6536dcb2177221257",
+        "Node name for S&R": "ChordMaterialEstimation"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 6,
+      "type": "SeamlessTile",
+      "pos": [
+        770,
+        -260
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 6
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            7
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-seamless-tiling",
+        "ver": "1.0.0",
+        "Node name for S&R": "SeamlessTile"
+      },
+      "widgets_values": [
+        "enable",
+        "Modify in place"
       ]
     }
   ],
@@ -772,67 +777,67 @@
       "IMAGE"
     ],
     [
+      16,
       13,
-      17,
+      0,
+      14,
+      0,
+      "IMAGE"
+    ],
+    [
+      22,
+      10,
+      0,
+      18,
+      0,
+      "CHORD_MODEL"
+    ],
+    [
+      23,
+      8,
+      0,
+      18,
+      1,
+      "IMAGE"
+    ],
+    [
+      24,
+      18,
+      0,
+      15,
+      0,
+      "IMAGE"
+    ],
+    [
+      25,
+      18,
       1,
       11,
       0,
       "IMAGE"
     ],
     [
-      14,
-      17,
-      3,
-      12,
-      0,
-      "IMAGE"
-    ],
-    [
-      15,
-      17,
+      26,
+      18,
       1,
       13,
       0,
       "IMAGE"
     ],
     [
-      16,
-      13,
-      0,
-      14,
-      0,
-      "IMAGE"
-    ],
-    [
-      17,
-      17,
-      0,
-      15,
-      0,
-      "IMAGE"
-    ],
-    [
+      27,
       18,
-      17,
       2,
       16,
       0,
       "IMAGE"
     ],
     [
-      19,
-      10,
+      28,
+      18,
+      3,
+      12,
       0,
-      17,
-      0,
-      "MODEL"
-    ],
-    [
-      20,
-      8,
-      0,
-      17,
-      1,
       "IMAGE"
     ]
   ],
@@ -867,17 +872,18 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.7272727272727345,
+      "scale": 0.4528301886792453,
       "offset": [
-        -310.7113887500002,
-        843.2881162499947
+        160,
+        1134.7375
       ]
     },
-    "frontendVersion": "1.30.6",
+    "frontendVersion": "1.33.10",
     "VHS_latentpreview": false,
     "VHS_latentpreviewrate": 0,
     "VHS_MetadataImage": true,
-    "VHS_KeepIntermediate": true
+    "VHS_KeepIntermediate": true,
+    "workflowRendererVersion": "LG"
   },
   "version": 0.4
 }

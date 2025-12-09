@@ -25,7 +25,7 @@ def apply_circular_padding(model):
     else:
         apply_padding(model, 'circular')
 
-ChordModelType = io.Custom("CHORD_MODEL")
+ChordModelType = io.Custom("chord_model")
 
 class ChordLoadModel(io.ComfyNode):
     """Node to load Chord Model"""
