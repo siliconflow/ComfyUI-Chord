@@ -16,18 +16,18 @@ ComfyUI custom node for the paper: **Chord: Chain of Rendering Decomposition for
 
 > Note the ComfyUI-Manager does not support cloning with `--recursive` dependencies. The nodes have to be cloned manually for the moment.
 
-    ```shell
-    # Clone the repository
-    cd ./ComfyUI/custom_nodes
-    git clone --recursive https://github.com/ubisoft/ComfyUI-Chord.git
+```shell
+# Clone the repository
+cd ./ComfyUI/custom_nodes
+git clone --recursive https://github.com/ubisoft/ComfyUI-Chord.git
 
-    # Install dependencies
-    ## For Python version
-    pip install -r .\ComfyUI-Chord\requirements.txt
+# Install dependencies
+## For Python version
+pip install -r .\ComfyUI-Chord\requirements.txt
 
-    ## Or for Windows portable version
-    ..\..\python_embeded\python.exe -s -m pip install -r .\ComfyUI-Chord\requirements.txt
-    ```
+## Or for Windows portable version
+..\..\python_embeded\python.exe -s -m pip install -r .\ComfyUI-Chord\requirements.txt
+```
 
 4. When running the nodes for the first time, they will download the model **Stable Diffusion 2.1** from this repository on the Hugging Face hub: [RedbeardNZ/stable-diffusion-2-1-base](https://huggingface.co/RedbeardNZ/stable-diffusion-2-1-base). The download will be placed in the Hugging Face cache folder `C:\Users\[your-username]\.cache\huggingface\hub\models--RedbeardNZ--stable-diffusion-2-1-base`. We are working on simplifying this dependency to have all models centralized in the ComfyUI models folder.
 
