@@ -1,0 +1,930 @@
+{
+  "id": "457fd89f-72f5-488c-98e0-a9ff28375de8",
+  "revision": 0,
+  "last_node_id": 21,
+  "last_link_id": 31,
+  "nodes": [
+    {
+      "id": 2,
+      "type": "DualCLIPLoader",
+      "pos": [
+        620,
+        -120
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            1
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.71",
+        "Node name for S&R": "DualCLIPLoader",
+        "models": [
+          {
+            "name": "ViT-L-14-BEST-smooth-GmP-TE-only-HF-format.safetensors",
+            "url": "https://huggingface.co/zer0int/CLIP-GmP-ViT-L-14/resolve/main/ViT-L-14-BEST-smooth-GmP-TE-only-HF-format.safetensors?download=true",
+            "directory": "text_encoders"
+          },
+          {
+            "name": "t5xxl_fp16.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/stable-diffusion-3.5-fp8/resolve/main/text_encoders/t5xxl_fp16.safetensors?download=true",
+            "directory": "text_encoders"
+          }
+        ]
+      },
+      "widgets_values": [
+        "ViT-L-14-BEST-smooth-GmP-TE-only-HF-format.safetensors",
+        "t5xxl_fp16.safetensors",
+        "flux",
+        "default"
+      ]
+    },
+    {
+      "id": 13,
+      "type": "SaveImage",
+      "pos": [
+        3310,
+        -270
+      ],
+      "size": [
+        220,
+        290
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 28
+        }
+      ],
+      "outputs": [],
+      "title": "Normal",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.71"
+      },
+      "widgets_values": [
+        "normal"
+      ]
+    },
+    {
+      "id": 14,
+      "type": "SaveImage",
+      "pos": [
+        3070,
+        90
+      ],
+      "size": [
+        220,
+        290
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 31
+        }
+      ],
+      "outputs": [],
+      "title": "Metalness",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.71"
+      },
+      "widgets_values": [
+        "metalness"
+      ]
+    },
+    {
+      "id": 15,
+      "type": "ChordNormalToHeight",
+      "pos": [
+        3580,
+        -90
+      ],
+      "size": [
+        230,
+        26
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "normal",
+          "type": "IMAGE",
+          "link": 29
+        }
+      ],
+      "outputs": [
+        {
+          "name": "height",
+          "type": "IMAGE",
+          "links": [
+            15
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "ubisoft/ComfyUI-Chord",
+        "ver": "a3db2834454fbced4f5fc4b2d529df5c517ebe45",
+        "Node name for S&R": "ChordNormalToHeight"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 16,
+      "type": "SaveImage",
+      "pos": [
+        3580,
+        0
+      ],
+      "size": [
+        230,
+        290
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 15
+        }
+      ],
+      "outputs": [],
+      "title": "Height",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.71"
+      },
+      "widgets_values": [
+        "height"
+      ]
+    },
+    {
+      "id": 17,
+      "type": "SaveImage",
+      "pos": [
+        3070,
+        -270
+      ],
+      "size": [
+        220,
+        290
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 27
+        }
+      ],
+      "outputs": [],
+      "title": "Basecolor",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.71"
+      },
+      "widgets_values": [
+        "basecolor"
+      ]
+    },
+    {
+      "id": 18,
+      "type": "SaveImage",
+      "pos": [
+        3310,
+        90
+      ],
+      "size": [
+        220,
+        290
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 30
+        }
+      ],
+      "outputs": [],
+      "title": "Roughness",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.71"
+      },
+      "widgets_values": [
+        "roughness"
+      ]
+    },
+    {
+      "id": 10,
+      "type": "VAEDecode",
+      "pos": [
+        1740,
+        -140
+      ],
+      "size": [
+        140,
+        46
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 10
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 23
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            11,
+            26
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.71",
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 11,
+      "type": "SaveImage",
+      "pos": [
+        1920,
+        -140
+      ],
+      "size": [
+        460,
+        520
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 11
+        }
+      ],
+      "outputs": [],
+      "title": "Texture Image",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.71"
+      },
+      "widgets_values": [
+        "texture_image"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "ConditioningZeroOut",
+      "pos": [
+        1166.5744000000002,
+        -41.4641
+      ],
+      "size": [
+        197.712890625,
+        26
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            5
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.71",
+        "Node name for S&R": "ConditioningZeroOut"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 6,
+      "type": "KSampler",
+      "pos": [
+        1410,
+        -140
+      ],
+      "size": [
+        270,
+        262
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 22
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 4
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 5
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            10
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.71",
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        668566875081956,
+        "randomize",
+        20,
+        1,
+        "heun",
+        "beta",
+        1
+      ]
+    },
+    {
+      "id": 1,
+      "type": "UNETLoader",
+      "pos": [
+        1090,
+        -270
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            22
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.71",
+        "Node name for S&R": "UNETLoader",
+        "models": [
+          {
+            "name": "Rayflux.v1.0_fp8.safetensors",
+            "url": "https://huggingface.co/MutantSparrow/Ray/resolve/main/FLUX/Rayflux.v1.0_fp8.safetensors?download=true",
+            "directory": "diffusion_models"
+          }
+        ]
+      },
+      "widgets_values": [
+        "Rayflux.v1.0_fp8.safetensors",
+        "default"
+      ]
+    },
+    {
+      "id": 8,
+      "type": "VAELoader",
+      "pos": [
+        1410,
+        190
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            23
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.71",
+        "Node name for S&R": "VAELoader",
+        "models": [
+          {
+            "name": "ae.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/vae/ae.safetensors?download=true",
+            "directory": "vae"
+          }
+        ]
+      },
+      "widgets_values": [
+        "ae.safetensors"
+      ]
+    },
+    {
+      "id": 7,
+      "type": "EmptySD3LatentImage",
+      "pos": [
+        1110,
+        140
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            7
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.71",
+        "Node name for S&R": "EmptySD3LatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1
+      ]
+    },
+    {
+      "id": 20,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        630,
+        80
+      ],
+      "size": [
+        260,
+        180
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            20,
+            21
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.71",
+        "Node name for S&R": "PrimitiveStringMultiline"
+      },
+      "widgets_values": [
+        "texture of old broken wood"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "CLIPTextEncodeFlux",
+      "pos": [
+        920,
+        -120
+      ],
+      "size": [
+        210,
+        166
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 1
+        },
+        {
+          "name": "clip_l",
+          "type": "STRING",
+          "widget": {
+            "name": "clip_l"
+          },
+          "link": 20
+        },
+        {
+          "name": "t5xxl",
+          "type": "STRING",
+          "widget": {
+            "name": "t5xxl"
+          },
+          "link": 21
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            3,
+            4
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.71",
+        "Node name for S&R": "CLIPTextEncodeFlux"
+      },
+      "widgets_values": [
+        "",
+        "",
+        1.5
+      ]
+    },
+    {
+      "id": 21,
+      "type": "ChordMaterialEstimation",
+      "pos": [
+        2760,
+        -160
+      ],
+      "size": [
+        209.51328125,
+        86
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "chord_model",
+          "type": "chord_model",
+          "link": 25
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 26
+        }
+      ],
+      "outputs": [
+        {
+          "name": "basecolor",
+          "type": "IMAGE",
+          "links": [
+            27
+          ]
+        },
+        {
+          "name": "normal",
+          "type": "IMAGE",
+          "links": [
+            28,
+            29
+          ]
+        },
+        {
+          "name": "roughness",
+          "type": "IMAGE",
+          "links": [
+            30
+          ]
+        },
+        {
+          "name": "metalness",
+          "type": "IMAGE",
+          "links": [
+            31
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "ubisoft/ComfyUI-Chord",
+        "ver": "53296391fe2cf7f3f370a5c6536dcb2177221257",
+        "Node name for S&R": "ChordMaterialEstimation"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 12,
+      "type": "ChordLoadModel",
+      "pos": [
+        2430,
+        -220
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "chord_model",
+          "type": "chord_model",
+          "links": [
+            25
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "ubisoft/ComfyUI-Chord",
+        "ver": "a3db2834454fbced4f5fc4b2d529df5c517ebe45",
+        "Node name for S&R": "ChordLoadModel",
+        "models": [
+          {
+            "name": "chord_v1.safetensors",
+            "url": "https://huggingface.co/Ubisoft/ubisoft-laforge-chord/resolve/main/chord_v1.safetensors?download=true",
+            "directory": "checkpoints"
+          }
+        ]
+      },
+      "widgets_values": [
+        "chord_v1.safetensors"
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      2,
+      0,
+      3,
+      0,
+      "CLIP"
+    ],
+    [
+      3,
+      3,
+      0,
+      5,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      4,
+      3,
+      0,
+      6,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      5,
+      5,
+      0,
+      6,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      7,
+      7,
+      0,
+      6,
+      3,
+      "LATENT"
+    ],
+    [
+      10,
+      6,
+      0,
+      10,
+      0,
+      "LATENT"
+    ],
+    [
+      11,
+      10,
+      0,
+      11,
+      0,
+      "IMAGE"
+    ],
+    [
+      15,
+      15,
+      0,
+      16,
+      0,
+      "IMAGE"
+    ],
+    [
+      20,
+      20,
+      0,
+      3,
+      1,
+      "STRING"
+    ],
+    [
+      21,
+      20,
+      0,
+      3,
+      2,
+      "STRING"
+    ],
+    [
+      22,
+      1,
+      0,
+      6,
+      0,
+      "MODEL"
+    ],
+    [
+      23,
+      8,
+      0,
+      10,
+      1,
+      "VAE"
+    ],
+    [
+      25,
+      12,
+      0,
+      21,
+      0,
+      "chord_model"
+    ],
+    [
+      26,
+      10,
+      0,
+      21,
+      1,
+      "IMAGE"
+    ],
+    [
+      27,
+      21,
+      0,
+      17,
+      0,
+      "IMAGE"
+    ],
+    [
+      28,
+      21,
+      1,
+      13,
+      0,
+      "IMAGE"
+    ],
+    [
+      29,
+      21,
+      1,
+      15,
+      0,
+      "IMAGE"
+    ],
+    [
+      30,
+      21,
+      2,
+      18,
+      0,
+      "IMAGE"
+    ],
+    [
+      31,
+      21,
+      3,
+      14,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "1. Generate Texture Image",
+      "bounding": [
+        610,
+        -343.6,
+        1780,
+        733.6
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "2. Generate Material Maps",
+      "bounding": [
+        2420,
+        -340,
+        1400,
+        733.6
+      ],
+      "color": "#8A8",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.4458204334365324,
+      "offset": [
+        -61.666666666666515,
+        1169.4270833333335
+      ]
+    },
+    "frontendVersion": "1.33.10",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true,
+    "workflowRendererVersion": "LG"
+  },
+  "version": 0.4
+}

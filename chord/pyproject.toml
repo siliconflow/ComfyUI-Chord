@@ -1,0 +1,13 @@
+[project]
+name = "comfyui-chord"
+description = "Custom nodes for the paper: Chord: Chain of Rendering Decomposition for PBR Material Estimation from Generated Texture Images"
+version = "1.0.0"
+license = { file = "LICENSE" }
+dependencies = ["huggingface_hub[hf_xet]", "diffusers", "omegaconf", "imageio"]
+
+[project.urls]
+Repository = "https://github.com/ubisoft/ComfyUI-Chord"
+
+[tool.comfy]
+PublisherId = "ubisoft-laforge"
+DisplayName = "ComfyUI-Chord"
