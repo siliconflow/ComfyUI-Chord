@@ -6,7 +6,7 @@ class Base(nn.Module):
         super().__init__()
         self.config = config
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
-        self.setup()
+        # self.setup()
     
     def setup(self):
         raise NotImplementedError
